@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block body %}
+<style>
+  body {
+    background-image: url('https://img.freepik.com/free-vector/tiny-cardiology-doctor-nurse-examining-heart-blood-pressure-prescribing-treatment-medical-cardiovascular-checkup-flat-vector-illustration-anatomy-hospital-heart-diseases-health-care-concept_74855-20963.jpg?w=1800&t=st=1674817380~exp=1674817980~hmac=2b011aad65d71fd8593b7b0c4aad47008ca5c1d6ca90b6ff98c18127defac66c');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  </style>
+
+<div class="container mt-3">
+
+<div class="row">
+
+
+<div class="col-md-4">
+
+</div>
+
+<div class="col-md-4 jumbotron">
+
+<h4 class="text-center bg-light text-dark" >Login</h4>
+<br>
+
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+
+<form action="/login" method="post">
+
+ 
+
+  <div class="form-group">
+    <label for="email" class="sytle1">Email Address</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+  
+  </div>
+
+
+  <div class="form-group">
+    <label for="password" class="sytle1">Password</label>
+    <input type="password" class="form-control" id="password" name="password" required>
+  </div>
+  
+  <button type="submit" class="btn-dark btn-block" >Login</button>
+</form>
+
+<br>
+Not a User <a href="/signup">Signup</a>
+
+
+</div>
+
+<div class="col-md-4">
+
+</div>
+
+
+</div>
+
+</div>
+
+
+{% endblock body %}
